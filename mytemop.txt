@@ -3,3 +3,4 @@ git pull origin <branch name>
 git push origin <branch name>
 gin clone thi repo ni copy thay
 and then git checkout <branch name>
+
