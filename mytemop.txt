@@ -5,4 +5,5 @@ gin clone thi repo ni copy thay
 and then git checkout <branch name>
 12345 hell
 add it to the git hub 
+add it to the local git repository
 
