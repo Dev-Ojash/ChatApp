@@ -1,0 +1,9 @@
+Hello word 12345
+git pull origin <branch name>
+git push origin <branch name>
+gin clone thi repo ni copy thay
+and then git checkout <branch name>
+12345 hell
+add it to the git hub 
+add it to the local git repository
+
