@@ -17,33 +17,11 @@ jobs:
         node-version: [18.x]
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Install Packages
-      run: npm install
-
-    - name: Build Static Files
-      env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
-      run: CI=false npm run build
-
-    - name: Cache Layers
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ matrix.node-version }}-npm
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: Deploy to gh-pages-main
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEYP }}
-        publish_branch: gh-pages-main  # Specify the target branch
-        publish_dir: ./build
+    - name: echo 123
+      run: npm -v
