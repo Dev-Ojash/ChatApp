@@ -1,27 +1,27 @@
-# This workflow will build and push a new build file to Prod server
-
 on:
   push:
     branches:
       - 'main'
-
 name: TEST BRANCH WORKFLOW
 
 jobs:
-  deploy:
-    name: Deploy
+  build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-    - name: echo 123
-      run: npm -v
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # Specify the Node.js version for React project
+
+    - name: Install dependencies
+      run: |
+        npm install
+    - name: Build React app
+      run: |
+        npm run build  # Runs 'react-scripts build' or equivalent to build the production app
+    - name: Clean up
+      run: |
+        rm -rf ./build
